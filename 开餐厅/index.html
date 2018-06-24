@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>day42-开餐厅(OOJ)</title>
+	<style type="text/css">
+		#contentBox {
+			position: absolute;
+			left: 40px;
+			top: 0;
+			width: 600px;
+			height: 600px;
+			overflow-y: auto;
+			box-sizing: border-box;
+			border: 1px solid steelblue;
+		}
+		/*食堂名字*/
+		.cuisines {
+			text-align: center;
+		}
+		/*客户言语位置*/
+		.customer {
+			text-align: left;
+		}
+		/*食堂员工言语位置*/
+		.rest {
+			text-align: right;
+		}
+		/*在言语中进行强调显示客户名字*/
+		.stress {
+			color: red;
+			background-color: lightblue;
+		}
+		/*名字突出显示，表明是谁的话语*/
+		.head {
+			display: inline-block;
+			height: 30px;
+			padding: 5px;
+			border-radius: 5px;
+			background: steelblue;
+			color: white;
+			text-align: middle;
+			line-height: 30px;
+		}
+		/*食堂内部交流*/
+		#canteen {
+			position: fixed;
+			left: 642px;
+			top: 0;
+			width: 600px;
+			height: 600px;
+			box-sizing: border-box;
+			padding: 0 40px;
+		}
+		#canteen .title {
+			text-align: center;
+		}
+		#canteen .title img {
+			width: 143px;
+			height: 80px;	
+		}
+		/*用这个是因为checkbox的组件wrapper用的是div*/
+		#canteen .checkbox {
+			display: inline-block;
+		}
+		button.hire, button.welcome, table.status {
+			margin-top: 20px;
+			border: 1px solid steelblue;
+		}
+		/*设置表格，显示营业状态的*/
+		table.status {
+			text-align: center;
+			border-collapse: collapse;
+		}
+		table.status th, table.status td {
+			padding: 5px;
+		}
+		#canteenBox {
+			width: 100%;
+			height: 50%;
+			border-radius: 5px;
+			border: 1px solid steelblue;
+			margin-top: 20px;
+			overflow-y: auto;
+		}
+		/*初始的modal层,用于食堂开业*/
+		#modal, .modal-prompt {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: white;
+			text-align: center;
+			z-index: 1000;
+		}
+		#modal .title {
+			margin-top: 200px;
+		}
+		.modal-prompt .title {
+			margin-top: 200px;
+			font-size: 40px;
+			color: red;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<p id="prompt" style="color:red; position: absolute; top: 0; left: 42px; opacity: 0.3; font-size: 30px;">接受新顾客才能开始的。</p>
+<div id="contentBox">
+	
+</div>
+<div id="canteen">
+	<div class="title"><img src="./images/midnight_canteen.png"></div>
+	<button class="welcome">接收新顾客</button><br>
+	<button class="hire">招聘新员工</button>
+	<div id="X-Checkbox" class='checkbox'></div>
+	<table class="status" border="1">
+	</table>
+
+	<div id="canteenBox"></div>
+</div>
+
+<div id="modal">
+	<div class='title'><img src="./images/midnight_canteen.png"></div>
+	<button class="begin">Are you ready? GO !!!</button>
+</div>
+
+<script type="text/javascript" src="./js/utils.js"></script>
+<script type="text/javascript" src="./js/checkbox.js"></script>
+<script type="text/javascript" src="./js/table.js"></script>
+<script type="text/javascript" src="./js/day42/ES5_restaurant.js"></script>
+<script type="text/javascript" src="./js/day42/ES5_staff.js"></script>
+<script type="text/javascript" src="./js/day42/ES5_chef.js"></script>
+<script type="text/javascript" src="./js/day42/ES5_waiter.js"></script>
+<script type="text/javascript" src="./js/day42/ES5_customerAndCuisines.js"></script>
+<script type="text/javascript" src='./js/day42/index.js'></script>
+</body>
+</html>
