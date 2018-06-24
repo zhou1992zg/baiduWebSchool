@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>足球小子</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.football_field {
+			margin: 10px auto;
+			width: 800px;
+			height: 500px;
+			background: url(image/1.jpg) no-repeat;
+			position: relative;
+		}
+		.football_field div {
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background-color: #ccc;
+			font-size: 12px;
+			text-align: center;
+			line-height: 15px;
+		}
+		#Beckham{
+			background-color: red;
+			position: absolute;
+			top: 242.5px;
+			left: 392.5px;
+			transition: all 4.0s cubic-bezier(0.25, 0.84, 0.65, 0.50);
+		}
+		#Messi {
+			background-color: blue;
+			position: absolute;
+			top: 242.5px;
+			left: 392.5px;
+			transition: all 4.0s cubic-bezier(0.75, 0.25, 0.25, 0.75)
+		}
+		#Ronaldo {
+			background-color: #fff;
+			position: absolute;
+			top: 242.5px;
+			left: 392.5px;
+			transition: all 4.0s cubic-bezier(0.89, 0.11, 0.05, 0.95)
+		}
+	</style>
+</head>
+<body>
+	<div class="football_field" id="football_field">
+		<div id="Messi">11</div>
+		<div id="Beckham">7</div>
+		<div id="Ronaldo">17</div>
+	</div>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
