@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>love_email</title>
+    <style type="text/css">
+    * {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #email-input {
+        width: 200px;
+    }
+
+    .email-sug {
+        position: relative;
+        background-color: pink;
+        width: 200px;
+    }
+
+    li {
+        width: 100%;
+        height: 20px;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" id="box_join">
+        <input id="email-input" type="text" placeholder="请输入邮箱地址">
+        <ul id="email-sug-wrapper" class="email-sug" style="display: none"></ul>
+        <button id="hahaha">提交</button>
+    </div>
+    <script type="text/javascript">
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var emailInput = document.getElementById('email-input');
+    var emailInputValue = emailInput.value;
+    var emailSugWrapper = document.getElementById('email-sug-wrapper');
+    for (var i = 0; i < postfixList.length; i++) {
+        li = document.createElement('li');
+        appLi = emailSugWrapper.appendChild(li);
+        tit = document.createTextNode('@' + postfixList[i]);
+        appLiText = appLi.appendChild(tit);
+    }
+    //每一次键盘时间都改变每一个li的innerHTML
+    emailInput.onkeyup = function show() {
+        //输入内容ul显示
+        emailSugWrapper.style.display = 'block';
+        for (var i = 0; i < postfixList.length; i++) {
+            NewemailInputValue = emailInput.value;
+            lis = document.getElementsByTagName('li');
+            lis[i].innerHTML = NewemailInputValue + '@' + postfixList[i];
+            lis[i].onclick = function() {
+                emailInput.value = this.innerHTML;
+            }
+        }
+        //正则表达式验证
+        var button=document.getElementById('hahaha');
+        var number = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g;
+        var yesNum = number.test(emailInput.value);
+        console.log(yesNum);	
+        console.log(emailInput.value);
+        button.onclick = function() {
+            if (yesNum == true) {
+                alert('输入正确,提交中...');
+            } else {
+                alert('输入正确的邮箱');
+            }
+        }
+    }
+
+    /**
+     * 动画1:js实现点击除Box外的任意位置隐藏
+     * x 是NumberUl左边框到浏览器可视窗口右边的距离
+     * y 是NumberUl上边框到浏览器可视窗口上边的距离
+     * CenX 是NumberUl左边框到浏览器可视窗口右边的距离
+     * CenY 是NumberUl下边框到浏览器可视窗口上边的距离
+     * BoxX 是CountryBox左边框到浏览器可视窗口右边的距离
+     * BoxY 是CountryBox上边框到浏览器可视窗口上边的距离
+     * BoxYY 是CountryBox下边框到浏览器可视窗口上边的距离
+     */
+    var BoxJoin = document.getElementById('box_join');
+    var ComeOn = document.getElementById('email-input');
+    var NumberJoin = document.getElementById('email-sug-wrapper');
+    var Box = document.getElementById('email-sug-wrapper');
+    var x = ComeOn.offsetLeft;
+    var y = ComeOn.offsetTop + NumberJoin.offsetHeight - 52;
+    var CenX = x + 60;
+    var CenY = y + 50;
+    var BoxX = x + 150;
+    var BoxY = y + 60;
+    var BoxYY = BoxY + 150;
+    //获取鼠标在浏览器中的坐标
+    window.onclick = function() {
+        var e = event;
+        var xx = e.pageX;
+        var yy = e.pageY;
+        //点击除CountryBox区域以外的地方都能隐藏CountryBox
+        if (xx > x && xx < CenX && yy > y && yy < CenY) {
+            //console.log('hehe');//这里可以加相应效果
+        } else {
+            if (xx > x && xx < BoxX && yy > BoxY && yy < BoxYY) {
+                //console.log('haha');//这里可以加相应效果
+            } else {
+                Box.style.display = 'none';
+                // Num.setAttribute('class','num');
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
